@@ -1,3 +1,7 @@
+# Assumes that directory ./node_modules/ 
+# contains the modules from which it depends
+# npm install lex-parser
+# npm install test
 
 all: install build test
 
@@ -5,7 +9,7 @@ install:
 	npm install
 
 build:
-	node ./node_modules/.bin/jison bnf.y bnf.l
+	NODE_PATH=`pwd` node ./node_modules/.bin/jison bnf.y bnf.l
 	mv bnf.js parser.js
 
 test:
