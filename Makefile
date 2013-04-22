@@ -9,9 +9,8 @@ install:
 	npm install
 
 build:
-	NODE_PATH=`pwd` node ./node_modules/.bin/jison bnf.y bnf.l
+	NODE_PATH=. node ./node_modules/.bin/jison bnf.y bnf.l
 	mv bnf.js parser.js
 
 test:
-	node tests/all-tests.js
-
+	NODE_PATH=. node tests/all-tests.js
